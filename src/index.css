@@ -1,0 +1,43 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.newAppButton{
+  font-family: Avenir, Helvetica;
+  padding: 20px;
+  background-color: #347FC4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.3rem;
+}
+
+.newAppButton:hover{
+  background-color: #9ED8DB;
+}
+
+.controls-wrapper{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.controls-wrapper div{
+  margin: 15px;
+}
+
+.card{
+  display: flex;
+  justify-content: space-evenly;
+}

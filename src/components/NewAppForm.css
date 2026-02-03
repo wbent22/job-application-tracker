@@ -1,0 +1,153 @@
+form{
+  --shadow-grey: #272838ff;
+  --lavender-blush: #e1d2d6ff;
+  --blushed-brick: #bc4b51ff;
+  --frosted-blue: #9ed8dbff;
+  --steel-blue: #347fc4ff;
+}
+/* Header and close button container - add this if you want them positioned together */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 2px solid #e1d2d6ff;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #272838ff;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.xButton {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #272838ff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.xButton:hover {
+    background-color: var(--lavender-blush);
+    color: var(--blushed-brick);
+    transform: rotate(90deg);
+}
+
+.xButton:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-q {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-q label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--shadow-grey);
+    letter-spacing: 0.3px;
+}
+
+.form-q input,
+.form-q select,
+.form-q textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--lavender-blush);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: white;
+    transition: all 0.3s ease;
+    color: var(--shadow-grey);
+}
+
+.form-q input:focus,
+.form-q select:focus,
+.form-q textarea:focus {
+    outline: none;
+    border-color: var(--steel-blue);
+    box-shadow: 0 0 0 3px rgba(52, 127, 196, 0.1);
+}
+
+.form-q input::placeholder,
+.form-q textarea::placeholder {
+    color: #a0a0a0;
+}
+
+.form-q select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23272838' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.form-q textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submitButton {
+    margin-top: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--steel-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.submitButton:hover {
+    background-color: #2a6aa8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 127, 196, 0.3);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+/* Optional: Add validation styling */
+.form-q input:invalid,
+.form-q select:invalid,
+.form-q textarea:invalid {
+    border-color: var(--blushed-brick);
+}
+
+/* Optional: Disabled state */
+.submitButton:disabled {
+    background-color: var(--lavender-blush);
+    color: var(--shadow-grey);
+    cursor: not-allowed;
+    transform: none;
+}

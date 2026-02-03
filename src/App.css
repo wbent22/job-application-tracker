@@ -1,0 +1,51 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card , .card-header{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) .25fr .25fr;
+  width: 80%;
+  margin: auto;
+  /* border: 1px solid red; */
+  gap: 3px;
+  text-align: center;
+  align-items: center;
+}
+
+.card button{
+  margin: auto;
+}
+
+.edit-button , .delete-button{
+  height: 80%;
+  text-align: center;
+}
+
+.edit-button{
+  background-color: #9ED8DB;
+  border-radius: 8px;
+  color: #272838;
+  border: 1px solid #272838;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.edit-button:hover{
+  background-color: #347FC4;
+  color: white;
+  border: 1px solid white;
+
+}
+
+.delete-button{
+  background-color: #BC4B51;
+  border-radius: 5px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.delete-button:hover{
+  background-color: #c17780;
+}
