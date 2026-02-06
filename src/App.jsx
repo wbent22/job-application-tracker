@@ -9,13 +9,27 @@ import { ESModulesEvaluator } from 'vite/module-runner'
 Modal.setAppElement('#root')
 
 function App() {
-  const [jobList, setJobList] = useState([{id: generateId(), company: 'google',
+  const [jobList, setJobList] = useState([
+        {id: generateId(), company: 'google',
         title: 'manager',
         status: 'applied'},
         {id: generateId(), company: 'apple',
         title: 'developer',
         status: 'rejected'
-        }])
+        },
+        {id: generateId(), company: 'amazon',
+        title: 'worker',
+        status: 'rejected'
+        },
+        {id: generateId(), company: 'spotify',
+        title: 'artist',
+        status: 'offer'
+        },
+        {id: generateId(), company: 'Youtube',
+        title: 'Ad Producer',
+        status: 'rejected'
+        },
+      ])
 
 
   const [modalIsOpen, setIsOpen] = useState(false)
