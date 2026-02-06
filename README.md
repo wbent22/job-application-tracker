@@ -1,8 +1,19 @@
-# Wyatt Bentley
-# 1/8/25
-## React Job Tracker
+# Job Application Tracker
 
-This is a simple Job Tracker with the ability to create, edit, and delete job applications.
-The user enters information about their job applications including, company, title, current application status, etc.
-The project uses React State to store data and render it to the page.
-The project uses a modal as the page/form for both creating and editting applications
+A React application to track job applications with add, edit, and delete functionality.
+
+## Features
+- Add job applications
+- Edit existing applications
+- Delete applications
+- Track application status
+
+## Tech Stack
+- React
+- JavaScript
+- CSS
+
+## How to Run Locally
+```bash
+npm install
+npm run dev
