@@ -4,7 +4,6 @@ import AddApp from './components/AddApp.jsx'
 import JobList from './components/JobList.jsx'
 import NewAppForm from './components/NewAppForm.jsx'
 import './App.css'
-import { ESModulesEvaluator } from 'vite/module-runner'
 
 Modal.setAppElement('#root')
 
@@ -12,22 +11,27 @@ function App() {
   const [jobList, setJobList] = useState([
         {id: generateId(), company: 'google',
         title: 'manager',
-        status: 'applied'},
+        status: 'applied',
+        date: "2023-06-19"},
         {id: generateId(), company: 'apple',
         title: 'developer',
-        status: 'rejected'
+        status: 'rejected',
+        date: "2026-10-19"
         },
         {id: generateId(), company: 'amazon',
         title: 'worker',
-        status: 'rejected'
+        status: 'rejected',
+        date: "2024-10-19"
         },
         {id: generateId(), company: 'spotify',
         title: 'artist',
-        status: 'offer'
+        status: 'offer',
+        date: "2023-10-19"
         },
         {id: generateId(), company: 'Youtube',
         title: 'Ad Producer',
-        status: 'rejected'
+        status: 'rejected',
+        date: "2021-10-20"
         },
       ])
 
@@ -73,8 +77,10 @@ function App() {
 
   return (
     <>
-      <h1>Job Application Tracker</h1>
-      <AddApp openCreate={openCreate}/>
+      <div className='header-section'>
+        <h1>Job Application Tracker</h1>
+        <AddApp openCreate={openCreate}/>
+      </div>
 
       <JobList jobs={jobList} setJobs={setJobList} openEdit={openEdit}/>  
 

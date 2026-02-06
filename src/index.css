@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 .newAppButton{
   font-family: Avenir, Helvetica;
@@ -27,15 +27,6 @@
   background-color: #9ED8DB;
 }
 
-.controls-wrapper{
-  display: flex;
-  justify-content: center;
-  margin: 30px;
-}
-
-.controls-wrapper div{
-  margin: 15px;
-}
 
 .card{
   display: flex;

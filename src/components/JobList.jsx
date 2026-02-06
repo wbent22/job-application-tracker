@@ -5,6 +5,7 @@ import JobCard from './JobCard'
 export default function JobList({jobs, setJobs, openEdit}){
     
     const [searchTerm, setSearchTerm] = useState('')
+    const [sortedBy, setSortedBy] = useState('')
 
     function handleDeleteApp(id){
         const confirmed = window.confirm("You want to delete this application?")
@@ -17,6 +18,10 @@ export default function JobList({jobs, setJobs, openEdit}){
         setSearchTerm(e.target.value)
     }
 
+    function handleSortChange(e) {
+        setSortedBy(e.target.value)
+    }
+
     const filteredList = jobs.filter(item => {
             const term = searchTerm.toLowerCase()
             return(
@@ -25,6 +30,15 @@ export default function JobList({jobs, setJobs, openEdit}){
                 item.status.includes(term)
             )
         })
+
+        const sortByDate = [...filteredList].sort((a, b) => new Date(b.date) - new Date(a.date))
+        const sortByStatus =  [...filteredList].sort((a, b) => a.status.localeCompare(b.status))
+        
+        let sortedList = filteredList
+        if (sortedBy === 'date') sortedList = sortByDate
+        if (sortedBy === 'status') sortedList = sortByStatus
+        
+    
 
     function EmptyState() {
         if (jobs.length === 0) {
@@ -38,30 +52,44 @@ export default function JobList({jobs, setJobs, openEdit}){
       }
 
     return(
-        <>
+        <div className="applications-container">
             <div className='controls'>
-                <label htmlFor="search">Search</label>
-                <input type="text" id='search' name='search' value={searchTerm} onChange={handleSearchChange} />
+                <div>
+                    <label htmlFor="search">Search</label>
+                    <input 
+                        type="text" 
+                        id='search' 
+                        name='search' 
+                        value={searchTerm} 
+                        onChange={handleSearchChange}
+                        placeholder="Search applications..."
+                    />
+                </div>
 
-                <label htmlFor="sort"></label>
-                <select id='sort'>
-                    <option value="" disabled>Sort By</option>
-                    <option value="date">by date</option>
-                    <option value="status">by status</option>
-                </select>
+                <div>
+                    <label htmlFor="sort">Sort</label>
+                    <select id='sort' value={sortedBy} onChange={handleSortChange}>
+                        <option value="" disabled>Sort By</option>
+                        <option value="date">By Date (Most Recent)</option>
+                        <option value="status">By Status</option>
+                    </select>
+                </div>
             </div>
-            <section className='card-header'>
-                <p>Company</p>
-                <p>Role</p>
-                <p>Status</p>
-                <p>Action</p>
-                <p>Remove</p>
-            </section>
-            <EmptyState />
-            {filteredList.map(job => (
-                <JobCard handleEdit={openEdit} delete={handleDeleteApp} key={job.id} job={job} />
-            ))}
-        </>
+            
+            <div className="applications-list">
+                <section className='card-header'>
+                    <p>Company</p>
+                    <p>Role</p>
+                    <p>Status</p>
+                    <p>Action</p>
+                    <p>Remove</p>
+                </section>
+                <EmptyState />
+                {sortedList.map(job => (    
+                    <JobCard handleEdit={openEdit} delete={handleDeleteApp} key={job.id} job={job} />
+                ))}
+            </div>
+        </div>
 
     )
 }

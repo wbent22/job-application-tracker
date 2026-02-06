@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -11,7 +11,7 @@
   width: 80%;
   margin: auto;
   /* border: 1px solid red; */
-  gap: 3px;
+  /* gap: 3px;
   text-align: center;
   align-items: center;
 }
@@ -47,5 +47,328 @@
 }
 
 .delete-button:hover{
-  background-color: #c17780;
+  background-color: #c17780; */
+
+*{
+  --shadow-grey: #272838ff;
+  --lavender-blush: #e1d2d6ff;
+  --blushed-brick: #bc4b51ff;
+  --frosted-blue: #9ed8dbff;
+  --steel-blue: #347fc4ff;
+}
+
+/* Header Section */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, var(--shadow-grey), #1a1b28);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(39, 40, 56, 0.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, white, var(--frosted-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.newAppButton {
+    padding: 0.875rem 2rem;
+    background-color: var(--steel-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(52, 127, 196, 0.3);
+}
+
+.newAppButton:hover {
+    background-color: #2a6aa8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 127, 196, 0.4);
+}
+
+.newAppButton:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(52, 127, 196, 0.3);
+}
+
+/* Add icon to button (optional) */
+.newAppButton::before {
+    content: "+ ";
+    font-size: 1.25rem;
+    margin-right: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: stretch;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .newAppButton {
+        width: 100%;
+    }
+}
+
+  /* Job Card */
+.card {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid var(--lavender-blush);
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    background-color: #f8f9fa;
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 0 var(--steel-blue);
+}
+
+.card:last-child {
+    border-bottom: none;
+}
+
+.card p {
+    margin: 0;
+    color: var(--shadow-grey);
+    font-size: 0.95rem;
+}
+
+.card p:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.card p:nth-child(2) {
+    color: #5a5a6e;
+}
+
+.card p:nth-child(3) {
+    text-align: center;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 0.4rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* Status Badge Colors */
+.card p:nth-child(3) {
+    background-color: var(--lavender-blush);
+    color: var(--shadow-grey);
+}
+
+/* Card Buttons */
+.edit-button,
+.delete-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.edit-button {
+    background-color: var(--steel-blue);
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #2a6aa8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 127, 196, 0.3);
+}
+
+.delete-button {
+    background-color: transparent;
+    color: var(--blushed-brick);
+    border: 2px solid var(--blushed-brick);
+}
+
+.delete-button:hover {
+    background-color: var(--blushed-brick);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(188, 75, 81, 0.3);
+}
+
+.edit-button:active,
+.delete-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .card p:nth-child(2) {
+        grid-column: 1 / -1;
+        font-size: 0.85rem;
+        margin-top: -0.5rem;
+    }
+    
+    .edit-button,
+    .delete-button {
+        grid-column: span 1;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* JobList Styles Below */
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(39, 40, 56, 0.08);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.controls label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--shadow-grey);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.controls input[type="text"],
+.controls select {
+    padding: 0.625rem 1rem;
+    border: 2px solid var(--lavender-blush);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background-color: white;
+    transition: all 0.3s ease;
+    color: var(--shadow-grey);
+    min-width: 200px;
+}
+
+.controls input[type="text"]:focus,
+.controls select:focus {
+    outline: none;
+    border-color: var(--steel-blue);
+    box-shadow: 0 0 0 3px rgba(52, 127, 196, 0.1);
+}
+
+.controls select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23272838' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.controls input[type="text"]::placeholder {
+    color: #a0a0a0;
+}
+
+/* Card Header (Table Header) */
+.card-header {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, var(--steel-blue), #2a6aa8);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(52, 127, 196, 0.2);
+}
+
+.card-header p {
+    margin: 0;
+    text-align: left;
+}
+
+.card-header p:nth-child(3),
+.card-header p:nth-child(4),
+.card-header p:nth-child(5) {
+    text-align: center;
+}
+
+/* Optional: Responsive Design */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .controls input[type="text"],
+    .controls select {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .card-header {
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 0.75rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .card-header p:nth-child(4),
+    .card-header p:nth-child(5) {
+        display: none;
+    }
+}
+
+.applications-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Smooth list appearance */
+.applications-list {
+    background-color: white;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 16px rgba(39, 40, 56, 0.1);
+    overflow: hidden;
 }
